@@ -83,4 +83,14 @@ describe('SongQueue', function() {
       SongModel.prototype.play.restore();
     });
   });
+
+  describe('when a queued song is removed', function() {
+    it('removes the song from the queue', function() {
+      var songQueue = new SongQueue(songData1);
+      songQueue.at(0).trigger('removeFromQueue');
+      expect(songQueue.length).to.equal(1);
+    });
+  });
+
+
 });
